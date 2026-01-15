@@ -37,12 +37,13 @@ server.tool(
         "User-Agent": "MCP_Server",
       },
     });
-    if(!res.ok)
-        throw new Error("Github api Error");
+    if (!res.ok) throw new Error("Github api Error");
     const repos = await res.json();
-    const repolist = repos.map((repo:any,i:number)=>`${i+1}. ${repo.name}`).jon
+    const repolist = repos.map(
+      (repo: any, i: number) => `${i + 1}. ${repo.name}`
+    );
+    return repolist;
   }
-
 );
 
 async function main() {
